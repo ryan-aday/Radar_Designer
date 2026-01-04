@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Radar Designer | Propagation</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body data-page="propagation">
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand"><span class="logo">RD</span> Radar Designer</div>
+      <nav class="nav">
+        <a href="index.html" data-page="overview">Overview</a>
+        <a href="design-requirements.html" data-page="requirements">Design Inputs</a>
+        <a href="ew-fundamentals.html" data-page="ew">EW Fundamentals</a>
+        <a href="antennas.html" data-page="antennas">Antennas</a>
+        <a href="propagation.html" data-page="propagation">Propagation &amp; Link Budgets</a>
+        <a href="radar-modes.html" data-page="radar-modes">Radar Modes &amp; Performance</a>
+        <a href="radar-equations.html" data-page="equations">Equations &amp; RCS</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <div class="header">
+        <div>
+          <p class="badge">Propagation</p>
+          <h1 class="page-title">Link budgets, clearance, and losses</h1>
+          <p class="page-subtitle">Calculate the path between transmitter and receiver: free-space loss, Fresnel clearance, diffraction, and atmospheric effects.</p>
+        </div>
+      </div>
+
+      <section class="section">
+        <h2>Link budget (Fig 7)</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Power accounting</h3>
+            <p><span class="code">P<sub>RX</sub> = EIRP - L<sub>TX</sub> - FSPL - L<sub>atm</sub> - L<sub>misc</sub> + G<sub>RX</sub> - L<sub>RX</sub></span> (dB)</p>
+            <p class="tagline">Losses include cables, polarization mismatch, fading margin, and receiver line loss. Saturation/MDS set usable dynamic range.</p>
+          </div>
+          <div class="card">
+            <h3>FSPL</h3>
+            <p><span class="code">FSPL = 20 log<sub>10</sub>(4πR/λ)</span>. Use λ = c/f. Below Fresnel distance, FSPL dominates; beyond it, consider two-ray interference.</p>
+          </div>
+          <div class="card">
+            <h3>Polarization loss</h3>
+            <p>Mismatched polarization adds <span class="code">L<sub>pol</sub></span> (typ. a few dB). Align linear/circular senses to preserve gain.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Fresnel &amp; earth bulge (Figs 8–9)</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>First Fresnel zone radius</h3>
+            <p><span class="code">b = √(λ·d<sub>1</sub>·d<sub>2</sub>/(d<sub>1</sub>+d<sub>2</sub>))</span>. Keep ≥60% of the zone clear; 40% blockage can fully fade the link.</p>
+          </div>
+          <div class="card">
+            <h3>Fresnel distance</h3>
+            <p><span class="code">FZ = 0.5·√(h<sub>TX</sub>·h<sub>RX</sub>·λ)</span>. If link distance &lt; FZ, FSPL applies; otherwise move to two-ray.</p>
+          </div>
+          <div class="card">
+            <h3>Earth bulge</h3>
+            <p>Bulge height: <span class="code">H = d²/66</span> (d in km, H in m). Use equivalent earth radius 8500 km when computing radar horizon or clearance.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Attenuation (Figs 10–11)</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Atmosphere &amp; rain</h3>
+            <p>Specific attenuation rises sharply above 10 GHz. Example: at 10 GHz in heavy rain, 0.12 dB/km (rain) + 0.02 dB/km (molecular) ⇒ reduce 100 km max range to &lt;45 km.</p>
+          </div>
+          <div class="card">
+            <h3>Frequency selection</h3>
+            <p>Consult Fig 10 to choose bands with minimal gaseous and rain loss for long-range search. High-millimeter-wave bands suit short-range, high-resolution tasks.</p>
+          </div>
+          <div class="card">
+            <h3>ISM/radar bands</h3>
+            <p>Fig 1 provides ISM allocations (e.g., 2.4 GHz, 5.8 GHz, 24 GHz) and radar allocations (e.g., 2.7–3.1 GHz, 9.2–9.5 GHz). Match mission with allowed spectrum.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Two-ray model &amp; diffraction (Figs 12–13)</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Two-ray path</h3>
+            <p>LOS distance: <span class="code">d<sub>LOS</sub> = √(R² + (h<sub>TX</sub>-h<sub>RX</sub>)²)</span>; reflected path: <span class="code">d<sub>ref</sub> = √(R² + (h<sub>TX</sub>+h<sub>RX</sub>)²)</span>. Phase difference drives constructive/destructive interference.</p>
+          </div>
+          <div class="card">
+            <h3>Two-ray loss</h3>
+            <p>Received power ∝ <span class="code">(h<sub>TX</sub>·h<sub>RX</sub>)² / R⁴</span> when paths cancel. Use when antennas are near ground or R &gt; FZ.</p>
+          </div>
+          <div class="card">
+            <h3>Knife-edge diffraction</h3>
+            <p>Diffraction parameter: <span class="code">ν = H·√(2/λ · (1/d<sub>1</sub> + 1/d<sub>2</sub>))</span>. Loss approximation: <span class="code">L<sub>KED</sub> = 1.27ν² + 9ν + 6</span> dB for 0&lt;ν&lt;2.4; 0 dB if ν&lt;0; 13+20 log ν if ν&gt;2.4.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Figures to add</h2>
+        <div class="grid">
+          <div class="figure-placeholder"><strong>Fig 1</strong> frequency-bands.jpg — ISM and radar allocations.</div>
+          <div class="figure-placeholder"><strong>Fig 7</strong> link-budget-path.jpg — transmitter/receiver blocks.</div>
+          <div class="figure-placeholder"><strong>Fig 8</strong> fresnel-zone.jpg — ellipsoidal zone illustration.</div>
+          <div class="figure-placeholder"><strong>Fig 9</strong> earth-bulge.jpg — curvature vs path.</div>
+          <div class="figure-placeholder"><strong>Fig 10</strong> atmospheric-rain-attenuation.jpg — attenuation vs frequency.</div>
+          <div class="figure-placeholder"><strong>Fig 11</strong> attenuation-range-impact.jpg — range reduction vs attenuation.</div>
+          <div class="figure-placeholder"><strong>Fig 12</strong> two-ray-geometry.jpg — LOS and reflected rays.</div>
+          <div class="figure-placeholder"><strong>Fig 13</strong> knife-edge.jpg — diffraction geometry.</div>
+        </div>
+      </section>
+
+      <div class="footer">Propagation drives antenna height, siting, and frequency choices. Verify Fresnel clearance and attenuation before finalizing budgets.</div>
+    </main>
+  </div>
+  <script src="assets/main.js"></script>
+</body>
+</html>

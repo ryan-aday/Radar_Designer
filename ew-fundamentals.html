@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Radar Designer | EW Fundamentals</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body data-page="ew">
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand"><span class="logo">RD</span> Radar Designer</div>
+      <nav class="nav">
+        <a href="index.html" data-page="overview">Overview</a>
+        <a href="design-requirements.html" data-page="requirements">Design Inputs</a>
+        <a href="ew-fundamentals.html" data-page="ew">EW Fundamentals</a>
+        <a href="antennas.html" data-page="antennas">Antennas</a>
+        <a href="propagation.html" data-page="propagation">Propagation &amp; Link Budgets</a>
+        <a href="radar-modes.html" data-page="radar-modes">Radar Modes &amp; Performance</a>
+        <a href="radar-equations.html" data-page="equations">Equations &amp; RCS</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <div class="header">
+        <div>
+          <p class="badge">EW foundations</p>
+          <h1 class="page-title">Electronic warfare landscape</h1>
+          <p class="page-subtitle">Condensed definitions and tactics: support, attack, and protection measures that shape radar survivability.</p>
+        </div>
+      </div>
+
+      <section class="section">
+        <h2>EW subareas</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Electronic support (ES)</h3>
+            <p>Detect, intercept, identify, and geolocate EM emitters. Includes SIGINT flavors: ELINT, COMINT, FISINT.</p>
+          </div>
+          <div class="card">
+            <h3>Electronic attack (EA)</h3>
+            <p>Actions to interfere with radar/communications: passive expendables (chaff, decoys) and active jamming (barrier, deception, swept/barrage).</p>
+          </div>
+          <div class="card">
+            <h3>Electronic protection (EP)</h3>
+            <p>Design features that reduce adversary EW effectiveness: sidelobe blanking/cancellation, pulse compression, frequency agility, burn-through modes, monopulse, LPI measures, and EM masking.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Jamming taxonomy</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Noise &amp; deception</h3>
+            <ul class="list">
+              <li>Noise, spot, swept, and barrage jamming (frequency agility stress).</li>
+              <li>Repeater, RGPO/VGPO for range/velocity pull-off.</li>
+              <li>Blip enhancement, cover-pulse, jammer-illuminated chaff (JAFF/CHILL).</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Deployment geometries</h3>
+            <ul class="list">
+              <li><strong>Self-protection</strong>: mainlobe jamming with co-located radar/target.</li>
+              <li><strong>Escort</strong>: jammer near the target, inside radar beam.</li>
+              <li><strong>Support / sidelobe</strong>: jammer outside mainlobe; uses sidelobe gain <span class="code">G<sub>S</sub></span>.</li>
+              <li><strong>Stand-in/off</strong>: closer/farther than protected aircraft.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Key ratios</h3>
+            <p>Jamming-to-signal ratio: <span class="code">J/S = (P<sub>J</sub>·G<sub>J</sub>·G<sub>R</sub>) / (P<sub>S</sub>·G<sub>T</sub>·G<sub>R</sub>)</span> at the victim receiver. Burn-through occurs when <span class="code">S &gt; J</span> at range <span class="code">R<sub>BT</sub></span>.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Support jamming math</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>J/S in sidelobes (Fig 20)</h3>
+            <p><span class="code">J/S = ERP<sub>J</sub>/ERP<sub>T</sub> + 11 + G<sub>M</sub> - G<sub>S</sub> + 40 log R<sub>T</sub> - 20 log R<sub>J</sub> - 10 log f</span> (dB)</p>
+            <p class="tagline">Use mainlobe gain <span class="code">G<sub>M</sub></span>, average sidelobe gain <span class="code">G<sub>S</sub></span>, target range <span class="code">R<sub>T</sub></span>, jammer range <span class="code">R<sub>J</sub></span>, and carrier frequency <span class="code">f</span> (MHz).</p>
+          </div>
+          <div class="card">
+            <h3>Burn-through with support jamming</h3>
+            <p><span class="code">R<sub>BT</sub> = √( (R<sub>T</sub><sup>2</sup>·R<sub>J</sub>·ERP<sub>T</sub>·G<sub>M</sub>) / (4·4π·ERP<sub>J</sub>·G<sub>S</sub>) )</span></p>
+            <p class="tagline">Escort jamming collapses to self-protection math if the escort sits inside the radar beam.</p>
+          </div>
+          <div class="card">
+            <h3>Chaff &amp; decoys</h3>
+            <p>Single dipole RCS: <span class="code">σ<sub>max</sub> ≈ 0.86·λ²</span>; average <span class="code">σ̄ ≈ 0.155·λ²</span>. Cloud effectiveness begins ~0.5 s after dispense, lasting up to 30 min. Active decoy RCS: <span class="code">σ ≈ 39 + G<sub>amp</sub> - 20 log f</span> (MHz).</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Figures to add</h2>
+        <div class="grid">
+          <div class="figure-placeholder"><strong>Fig 17</strong> chaff.jpg — visual of chaff ribbon cloud and fall rate.</div>
+          <div class="figure-placeholder"><strong>Fig 20</strong> support-jamming-geometry.jpg — geometry of radar, target, and jammer.</div>
+          <div class="figure-placeholder"><strong>Fig 19</strong> decoy-rcs.jpg — RCS vs frequency for active decoys.</div>
+        </div>
+      </section>
+
+      <div class="footer">Use this page to assess EW survivability scenarios before finalizing waveforms, antenna sidelobe specs, and polarization choices.</div>
+    </main>
+  </div>
+  <script src="assets/main.js"></script>
+</body>
+</html>
