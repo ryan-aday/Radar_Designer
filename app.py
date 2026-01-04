@@ -44,5 +44,6 @@ st.markdown(
     - **Pulse & CW radar** for blind range, unambiguous range, duty cycle, and FMCW resolution.
     - **Doppler, refraction, and horizon** for radial speed, height estimates, ducting, and radar LOS.
     - **Resolution, link equations & Swerling** for resolution cells, one/two-way links, losses, and fluctuation models.
+    - **Antenna Pattern 3D Visualizer** for interactive pattern shapes across common antenna archetypes.
     """
 )

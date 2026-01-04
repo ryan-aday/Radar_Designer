@@ -20,14 +20,14 @@ st.markdown(
 
 col1, col2 = st.columns(2)
 with col1:
-    tx_power_w = st.number_input("Transmit power $P_t$ (W)", min_value=0.1, value=1000.0, help="Weather radar peak power.")
-    gain_dbi = st.number_input("Antenna gain $G$ (dBi)", value=35.0, help="Parabolic dish gain.")
-    wavelength_m = st.number_input("Wavelength $\lambda$ (m)", min_value=0.001, value=0.03, help="Carrier wavelength.")
-    range_km = st.number_input("Range $R$ (km)", min_value=0.1, value=50.0, help="Target range.")
+    tx_power_w = st.number_input(r"Transmit power $P_t$ (W)", min_value=0.1, value=1000.0, help="Weather radar peak power.")
+    gain_dbi = st.number_input(r"Antenna gain $G$ (dBi)", value=35.0, help="Parabolic dish gain.")
+    wavelength_m = st.number_input(r"Wavelength $\lambda$ (m)", min_value=0.001, value=0.03, help="Carrier wavelength.")
+    range_km = st.number_input(r"Range $R$ (km)", min_value=0.1, value=50.0, help="Target range.")
 with col2:
-    rain_att_db_km = st.number_input("Rain/gas attenuation (dB/km)", min_value=0.0, value=0.12, help="Rain + gaseous loss per km.")
-    misc_loss_db = st.number_input("Other losses $L_{tot}$ (dB)", min_value=0.0, value=5.0, help="Waveguide, radome, processing.")
-    reflectivity_factor = st.number_input("Reflectivity factor Z (mm^6/m^3)", min_value=0.1, value=1000.0, help="Storm cells can exceed 10^4.")
+    rain_att_db_km = st.number_input(r"Rain/gas attenuation (dB/km)", min_value=0.0, value=0.12, help="Rain + gaseous loss per km.")
+    misc_loss_db = st.number_input(r"Other losses $L_{tot}$ (dB)", min_value=0.0, value=5.0, help="Waveguide, radome, processing.")
+    reflectivity_factor = st.number_input(r"Reflectivity factor Z (mm^6/m^3)", min_value=0.1, value=1000.0, help="Storm cells can exceed 10^4.")
 
 # Simple proportional power score (dB) ignoring calibration constants
 power_score_db = (

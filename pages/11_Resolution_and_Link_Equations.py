@@ -55,5 +55,6 @@ st.markdown(
     * **Fluctuation loss**: ~8.4 dB for \(P_D=0.9\) in Swerling I/II; Cases III/IV reduce loss; Case V (steady RCS) is ~0 dB.
     * **Use margin**: Add the loss to required SNR when sizing transmitter power or dwell hits/scan.
     * **Ambiguity**: For multiple hits, noncoherent integration adds \(10\log_{10}(N)\) dB; coherent adds \(20\log_{10}(N)\).
+    * **Case models**: I/II assume exponential (single look) or chi-squared (multiple looks); III/IV halve the variance (slowly varying RCS); V treats \(\sigma\) constant.
     """
 )

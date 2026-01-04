@@ -19,6 +19,7 @@ Multipage Streamlit app with calculators and quick-reference equations for radar
 - **Pulse & CW radar**: duty cycle, blind/unambiguous range, Doppler, FMCW resolution, hits/scan.
 - **Doppler, refraction, and horizon**: radial speed, height estimation, refraction classes, ducting, radar horizon.
 - **Resolution, link equations & Swerling**: resolution cells, angular spacing, one-/two-way link equations, losses, fluctuation cases, weather radar notes.
+- **Antenna Pattern 3D Visualizer**: approximate 3D gain shapes for common antennas with adjustable aperture/length, array size, and front/back shaping.
 
 ## Notes
 - Equations are rendered on every page.

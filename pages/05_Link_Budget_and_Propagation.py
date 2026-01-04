@@ -7,16 +7,16 @@ from calculations import earth_bulge_m, fresnel_radius_m, fspl_db, noise_floor_d
 st.title("Link Budget, Fresnel Zone, and Propagation")
 st.markdown(r"Estimate received power and SNR with the two-way radar equation (monostatic, point target):")
 st.latex(r"P_r = P_t G_t G_r \left( \frac{\lambda}{4\pi R} \right)^4 \frac{\sigma}{L_{\text{tot}}}")
-st.caption("Variables: $P_t$ transmit power, $G_t/G_r$ antenna gains, $\lambda$ wavelength, $R$ range, $\sigma$ RCS, $L_{tot}$ total losses.")
+st.caption(r"Variables: $P_t$ transmit power, $G_t/G_r$ antenna gains, $\lambda$ wavelength, $R$ range, $\sigma$ RCS, $L_{tot}$ total losses.")
 
 cols = st.columns(2)
 with cols[0]:
-    tx_power_w = st.number_input("Transmitter power $P_t$ (W)", min_value=0.1, value=1000.0, help="Peak pulse power.")
-    tx_gain_dbi = st.number_input("TX antenna gain $G_t$ (dBi)", value=30.0, help="Mainlobe gain toward target.")
-    rx_gain_dbi = st.number_input("RX antenna gain $G_r$ (dBi)", value=30.0, help="Assume monostatic: same as $G_t$ if shared.")
-    freq_ghz = st.number_input("Carrier frequency $f$ (GHz)", min_value=0.1, value=10.0, help="Sets wavelength $\lambda=0.3/f$.")
-    rcs_m2 = st.number_input("Target RCS $\sigma$ (m²)", min_value=0.0001, value=1.0, format="%.4f", help="Radar cross section.")
-    range_km = st.number_input("Target range $R$ (km)", min_value=0.1, value=50.0)
+    tx_power_w = st.number_input(r"Transmitter power $P_t$ (W)", min_value=0.1, value=1000.0, help="Peak pulse power.")
+    tx_gain_dbi = st.number_input(r"TX antenna gain $G_t$ (dBi)", value=30.0, help="Mainlobe gain toward target.")
+    rx_gain_dbi = st.number_input(r"RX antenna gain $G_r$ (dBi)", value=30.0, help="Assume monostatic: same as $G_t$ if shared.")
+    freq_ghz = st.number_input(r"Carrier frequency $f$ (GHz)", min_value=0.1, value=10.0, help="Sets wavelength $\lambda=0.3/f$.")
+    rcs_m2 = st.number_input(r"Target RCS $\sigma$ (m²)", min_value=0.0001, value=1.0, format="%.4f", help="Radar cross section.")
+    range_km = st.number_input(r"Target range $R$ (km)", min_value=0.1, value=50.0)
 with cols[1]:
     losses_db = st.number_input("Total losses $L_{tot}$ (dB)", value=10.0, help="Propagation + system + processing.")
     bandwidth_mhz = st.number_input("Noise bandwidth $B$ (MHz)", min_value=0.001, value=5.0, help="Receiver IF bandwidth.")
@@ -54,8 +54,8 @@ st.latex(r"\text{FSPL (dB)} = 32.45 + 20\log_{10}(R_{\text{km}}) + 20\log_{10}(f
 col1, col2 = st.columns(2)
 with col1:
     distance_km = st.number_input("Path length $d$ (km)", min_value=0.1, value=20.0, help="TX-RX separation.")
-    freq_ghz_clear = st.number_input("Frequency for clearance $f$ (GHz)", min_value=0.1, value=5.0, key="prop_f", help="Sets $\lambda=0.3/f$.")
-    zone = st.number_input("Fresnel zone number $n$", min_value=1, value=1, step=1)
+    freq_ghz_clear = st.number_input(r"Frequency for clearance $f$ (GHz)", min_value=0.1, value=5.0, key="prop_f", help="Sets $\lambda=0.3/f$.")
+    zone = st.number_input(r"Fresnel zone number $n$", min_value=1, value=1, step=1)
 with col2:
     rain_loss_db_km = st.number_input("Rain/atmospheric loss (dB/km)", min_value=0.0, value=0.05, help="Rain + gaseous loss per km.")
     misc_loss_db = st.number_input("Other path losses (dB)", min_value=0.0, value=2.0, help="Knife-edge, foliage, mismatch.")
