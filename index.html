@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Radar Designer | Overview</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body data-page="overview">
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand"><span class="logo">RD</span> Radar Designer</div>
+      <nav class="nav">
+        <a href="index.html" data-page="overview">Overview</a>
+        <a href="design-requirements.html" data-page="requirements">Design Inputs</a>
+        <a href="ew-fundamentals.html" data-page="ew">EW Fundamentals</a>
+        <a href="antennas.html" data-page="antennas">Antennas</a>
+        <a href="propagation.html" data-page="propagation">Propagation &amp; Link Budgets</a>
+        <a href="radar-modes.html" data-page="radar-modes">Radar Modes &amp; Performance</a>
+        <a href="radar-equations.html" data-page="equations">Equations &amp; RCS</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <section class="hero">
+        <div>
+          <h1>Radar Designer knowledge base</h1>
+          <p class="tagline">Ground your radar architecture choices in curated formulas, rules of thumb, and figure references from the Radar &amp; Electronic Warfare eGuide.</p>
+          <ul>
+            <li>Start with <strong>Design Inputs</strong> for required power, range, RCS, and dwell needs.</li>
+            <li>Use <strong>Propagation</strong> and <strong>Equations</strong> for budgets, losses, and burn-through assessments.</li>
+            <li>Attach the referenced JPGs to each placeholder to complete the illustrated guide.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Figure dropbox</h3>
+          <p class="tagline">Save eGuide figures as JPGs under <code class="code">images/</code> using these names:</p>
+          <div class="grid">
+            <div class="figure-placeholder"><strong>Fig 1</strong> frequency-bands.jpg<br/>Optional overlays for ISM and radar allocations.</div>
+            <div class="figure-placeholder"><strong>Fig 2</strong> antenna-pattern-models.jpg<br/>Rectangular vs. elliptical mainlobe energy.</div>
+            <div class="figure-placeholder"><strong>Fig 7</strong> link-budget-path.jpg<br/>Transmitter-to-receiver diagram.</div>
+            <div class="figure-placeholder"><strong>Fig 10</strong> atmospheric-rain-attenuation.jpg<br/>Specific attenuation vs. frequency.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>How to navigate</h2>
+        <p>Each page extracts equations, definitions, and design cues from the supplied eGuide. Equations are formatted for quick copy into calculation notebooks or engineering reports.</p>
+        <div class="grid">
+          <div class="card">
+            <h3>Rapid scoping</h3>
+            <p>Use the Design Inputs page to collect mission constraints (range, RCS, duty cycle, dwell time) and see linked formulas for link margin and burn-through checks.</p>
+          </div>
+          <div class="card">
+            <h3>Reference fidelity</h3>
+            <p>Every section lists the original figure numbers to attach. Replace placeholders in <code class="code">images/</code> to publish the full illustrated experience.</p>
+          </div>
+          <div class="card">
+            <h3>EW-aware designs</h3>
+            <p>EW countermeasures and jamming-to-signal ratios are summarized to stress-test survivability early in the concept phase.</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="footer">Built from the Radar &amp; Electronic Warfare eGuide, Version 01.03. Add your project branding or additional sources as needed.</div>
+    </main>
+  </div>
+  <script src="assets/main.js"></script>
+</body>
+</html>

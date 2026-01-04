@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Radar Designer | Antennas</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body data-page="antennas">
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand"><span class="logo">RD</span> Radar Designer</div>
+      <nav class="nav">
+        <a href="index.html" data-page="overview">Overview</a>
+        <a href="design-requirements.html" data-page="requirements">Design Inputs</a>
+        <a href="ew-fundamentals.html" data-page="ew">EW Fundamentals</a>
+        <a href="antennas.html" data-page="antennas">Antennas</a>
+        <a href="propagation.html" data-page="propagation">Propagation &amp; Link Budgets</a>
+        <a href="radar-modes.html" data-page="radar-modes">Radar Modes &amp; Performance</a>
+        <a href="radar-equations.html" data-page="equations">Equations &amp; RCS</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <div class="header">
+        <div>
+          <p class="badge">Antenna reference</p>
+          <h1 class="page-title">Patterns, gain, and beamwidths</h1>
+          <p class="page-subtitle">Use simplified pattern models to estimate gain, solid angle, and beamwidth for dishes, arrays, and omnidirectional antennas.</p>
+        </div>
+      </div>
+
+      <section class="section">
+        <h2>Pattern models (Fig 2)</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Rectangular model</h3>
+            <p>Assumes all radiated energy is uniformly distributed within the -3 dB boundaries of vertical <span class="code">θ<sub>El</sub></span> and horizontal <span class="code">θ<sub>Az</sub></span> beamwidths; no sidelobes. Surface area: <span class="code">Ω = θ<sub>Az</sub> · θ<sub>El</sub></span> (radians).</p>
+          </div>
+          <div class="card">
+            <h3>Elliptical model</h3>
+            <p>More realistic taper across the mainlobe; difference vs rectangular ≈ 78 %. Correct with antenna efficiency <span class="code">k<sub>a</sub></span> (typ. ~55% for dishes).</p>
+          </div>
+          <div class="card">
+            <h3>Beam solid angle</h3>
+            <p>For narrow beams: <span class="code">Ω<sub>A</sub> ≈ θ<sub>Az</sub> · θ<sub>El</sub></span>. Directivity/gain approximation: <span class="code">G ≈ 4π/Ω<sub>A</sub></span>.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Field regions (Fig 3)</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Reactive near-field</h3>
+            <p>Immediate vicinity; E and H not in phase; distance-dependent pattern. Boundary near <span class="code">R &lt; 0.62√(d³/λ)</span> where <span class="code">d</span> is max antenna dimension.</p>
+          </div>
+          <div class="card">
+            <h3>Radiating near-field (Fresnel)</h3>
+            <p>E and H in phase, angular distribution still range-dependent. For short antennas (<span class="code">d ≪ λ</span>): <span class="code">R &lt; 2d²/λ</span>.</p>
+          </div>
+          <div class="card">
+            <h3>Far-field (Fraunhofer)</h3>
+            <p>Angular pattern independent of range; gain/specs assume this region. Approx boundary <span class="code">R &gt; 2d²/λ</span> (large antennas).</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Gain, efficiency, and beamwidths (Figs 4–6)</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Gain estimation</h3>
+            <p>For symmetric parabolic dishes: <span class="code">G(dBi) ≈ 43.6 - 10 log(θ<sub>Az</sub>·θ<sub>El</sub>)</span> where beamwidths are in degrees. A 1° beam yields ≈43.6 dBi.</p>
+          </div>
+          <div class="card">
+            <h3>Efficiency adjustments</h3>
+            <p>Apply <span class="code">k<sub>a</sub></span> for taper/illumination: 60% (+0.4 dB), 50% (-0.4 dB), 40% (-1.4 dB), 30% (-2.6 dB).</p>
+          </div>
+          <div class="card">
+            <h3>Two-way beamwidth</h3>
+            <p>Detection occurs where transmit and receive footprints overlap; in SAR, effective illumination shrinks to the overlapping ellipse, reducing edge power (≈ -1.5 dB).</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Antenna patterns at a glance (Fig 14)</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Pencil &amp; fan beams</h3>
+            <p>Pencil: narrow in azimuth/elevation for 3D radars. Fan: narrow azimuth, wide elevation for 2D surveillance/nav.</p>
+          </div>
+          <div class="card">
+            <h3>Beaver tail &amp; CSC²</h3>
+            <p>Beaver tail: 5–10° azimuth, &lt;1° elevation (height finders). Cosecant-squared shapes maintain constant received power vs range for constant-altitude targets.</p>
+          </div>
+          <div class="card">
+            <h3>Omni &amp; auxiliary</h3>
+            <p>Omnidirectional patterns used for sidelobe suppression antennas and auxiliary channels.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Figures to add</h2>
+        <div class="grid">
+          <div class="figure-placeholder"><strong>Fig 2</strong> antenna-pattern-models.jpg — rectangular vs elliptical mainlobe.</div>
+          <div class="figure-placeholder"><strong>Fig 3</strong> antenna-field-regions.jpg — reactive near-field, Fresnel, far-field.</div>
+          <div class="figure-placeholder"><strong>Fig 4</strong> antenna-gain-direction.jpg — lobes, sidelobe levels, beamwidth definitions.</div>
+          <div class="figure-placeholder"><strong>Fig 5/6</strong> antenna-gain-vs-beamwidth.jpg — gain curves vs beamwidth and efficiency.</div>
+          <div class="figure-placeholder"><strong>Fig 14</strong> radar-antenna-patterns.jpg — pencil, fan, beaver tail, CSC², omni.</div>
+        </div>
+      </section>
+
+      <div class="footer">Use these approximations early; refine with full EM models once aperture size, taper, and frequency are fixed.</div>
+    </main>
+  </div>
+  <script src="assets/main.js"></script>
+</body>
+</html>
