@@ -17,6 +17,8 @@ with st.expander("Key equations at a glance"):
     st.latex(r"\textbf{Burn-through (self-protect): } R_{BT} \propto \left( \frac{P_t G_t^2 \lambda^2 \sigma}{P_j G_j (4\pi)^2 J/S} \right)^{1/4}")
     st.latex(r"\textbf{Range resolution (unmod): } \Delta R = \frac{c_0 \tau}{2} \qquad \textbf{Chirp: } \Delta R = \frac{c_0}{2\,BW}")
     st.latex(r"\textbf{Antenna gain: } G \approx \eta \frac{4\pi}{\Omega_A} \approx \eta \frac{41253}{\theta_{\text{az}}\,\theta_{\text{el}}}")
+    st.latex(r"\textbf{Radar horizon: } R_{LOS} \approx 4.12(\sqrt{h_{ant}} + \sqrt{h_{tgt}}) \text{ km}")
+    st.latex(r"\textbf{Duty cycle: } \text{DC} = \frac{\tau}{\text{PRI}} \qquad \textbf{EIRP: } P_{EIRP} = P_t G_t")
 
 st.info(
     "Paste figure JPGs from the source eGuide into the placeholder expanders on each page to complete the visual references."
@@ -40,5 +42,12 @@ st.markdown(
     - **Propagation** for Fresnel clearance and FSPL checks.
     - **Antenna** for gain vs. beamwidth.
     - **Radar modes** for timing, resolution, and velocity ambiguity.
+    - **Antenna models & fields** for rectangular vs. elliptical gain and near/far-field notes.
+    - **RCS & retroreflectors** for Rayleigh/optical checks and decoy references.
+    - **Weather radar & horizon** for volume-target losses, attenuation, and LOS range.
+    - **Noise & receiver performance** for NF/Fn, ENOB, and noise-temperature context.
+    - **Jamming & deception** for support-jamming J/S and ECM technique notes.
+    - **Pulse & CW radar** for duty cycle, blind/unambiguous range, Doppler, and FMCW resolution.
+    - **Resolution, links & Swerling** for pulse volume, angular spacing, one-way link budgets, and fluctuation margins.
     """
 )
