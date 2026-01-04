@@ -238,7 +238,7 @@ def support_jamming_js_db(
     range_jammer_km: float,
     freq_mhz: float,
 ) -> float:
-    """J/S estimate for support/sidelobe jamming from eGuide relationship."""
+    """J/S estimate for support/sidelobe jamming relationship."""
     if any(val <= 0 for val in (erp_j_w, erp_t_w, range_target_km, range_jammer_km, freq_mhz)):
         return float("nan")
     erp_j_dbw = 10 * math.log10(erp_j_w)

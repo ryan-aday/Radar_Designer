@@ -1,27 +1,25 @@
 # Radar Designer (Streamlit)
 
-Multipage Streamlit app that packages key radar and EW calculators with inline LaTeX so the governing equations stay visible while you tweak inputs.
+Multipage Streamlit app with calculators and quick-reference equations for radar and electronic warfare topics.
 
 ## Running locally
 1. Install dependencies: `pip install -r requirements.txt`
 2. Launch Streamlit multipage app: `streamlit run app.py`
-3. Use the sidebar to navigate across pages; drop JPGs from the source eGuide into the provided expanders for visuals.
+3. Use the sidebar to navigate across pages.
 
 ## Pages
-- **Home**: overview plus quick-reference LaTeX equations.
-- **Design Inputs & Link Budget**: received power, SNR, and FSPL checks.
-- **Electronic Warfare & Burn-Through**: approximate burn-through range against a jammer.
-- **Propagation & Clearance**: Fresnel radius, Earth bulge, FSPL, knife-edge/two-ray notes.
-- **Antenna Gain & Beamwidth**: estimate gain from -3 dB beamwidths and efficiency.
-- **Radar Modes, Timing & Resolution**: compare unmodulated vs. chirp resolution, unambiguous velocity, and dwell time.
-- **Antenna Models & Field Regions**: rectangular vs. elliptical solid-angle gain plus near-/far-field guidance.
-- **RCS & Retroreflectors**: Rayleigh vs. optical cross-section checks, chaff and active decoy notes.
-- **Weather Radar & Propagation**: volume-target equation highlights, attenuation sliders, radar horizon, and height estimation.
-- **Noise & Receiver Performance**: sensitivity, NF/Fn, noise temperature, SINAD/ENOB quick checks.
-- **Jamming & Deception**: support-jamming J/S estimator with notes on noise, spot, barrage, pulse, RGPO/VGPO, and decoys.
-- **Pulse & CW Radar**: duty cycle, blind/unambiguous range, Doppler dilemma, and FMCW range resolution.
-- **Resolution, Links & Swerling**: range/angular resolution, pulse volume, one-way link budgets, and fluctuation loss context.
+- **Electronic warfare overview**: subareas, support/protection measures, burn-through estimator.
+- **Frequency bands & ISM**: ISM table, band lettering, radar allocations.
+- **Antenna models & field regions**: rectangular vs. elliptical gain models and near-/far-field guidance.
+- **Antenna gain & beamwidth**: rectangular gain estimator with efficiency.
+- **Link budget & propagation**: two-way link, FSPL, Fresnel radius, bulge, two-ray/knife-edge notes, command-guided beams.
+- **Noise & receiver performance**: sensitivity, NF/Fn, noise temperature, SINAD/ENOB, SNIR checks.
+- **RCS, chaff, and decoys**: Rayleigh/Mie/optical regions, retroreflectors, chaff cloud sizing, active decoy RCS.
+- **Jamming & deception**: J/S estimator plus spot/barrage/swept/pulse/RGPO/VGPO techniques.
+- **Pulse & CW radar**: duty cycle, blind/unambiguous range, Doppler, FMCW resolution, hits/scan.
+- **Doppler, refraction, and horizon**: radial speed, height estimation, refraction classes, ducting, radar horizon.
+- **Resolution, link equations & Swerling**: resolution cells, angular spacing, one-/two-way link equations, losses, fluctuation cases, weather radar notes.
 
 ## Notes
-- Equations are rendered with LaTeX on every page per requirements.
+- Equations are rendered on every page.
 - Calculations shared across pages live in `calculations.py` to keep logic in one place.

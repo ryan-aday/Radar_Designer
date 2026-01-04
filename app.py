@@ -1,14 +1,14 @@
-"""Streamlit Radar Designer multipage app with LaTeX equations."""
+"""Streamlit Radar Designer multipage app."""
 
 import streamlit as st
 
 st.set_page_config(page_title="Radar Designer", layout="wide")
 
-st.title("Radar Designer eGuide")
+st.title("Radar Designer")
 st.write(
-    """Interactive, multipage reference inspired by the radar and electronic warfare eGuide.
-    Use the sidebar to jump between design inputs, EW considerations, propagation, antenna
-    performance, and radar modes. Each page keeps LaTeX equations visible alongside the calculators."""
+    """Interactive, multipage reference for radar and electronic warfare topics.
+    Use the sidebar to jump between design inputs, propagation, antenna performance, timing,
+    and EW effects. Each page keeps the governing equations visible alongside calculators."""
 )
 
 with st.expander("Key equations at a glance"):
@@ -19,10 +19,6 @@ with st.expander("Key equations at a glance"):
     st.latex(r"\textbf{Antenna gain: } G \approx \eta \frac{4\pi}{\Omega_A} \approx \eta \frac{41253}{\theta_{\text{az}}\,\theta_{\text{el}}}")
     st.latex(r"\textbf{Radar horizon: } R_{LOS} \approx 4.12(\sqrt{h_{ant}} + \sqrt{h_{tgt}}) \text{ km}")
     st.latex(r"\textbf{Duty cycle: } \text{DC} = \frac{\tau}{\text{PRI}} \qquad \textbf{EIRP: } P_{EIRP} = P_t G_t")
-
-st.info(
-    "Paste figure JPGs from the source eGuide into the placeholder expanders on each page to complete the visual references."
-)
 
 with st.expander("Suggested figure drop-in points"):
     st.markdown(
@@ -37,17 +33,16 @@ with st.expander("Suggested figure drop-in points"):
 
 st.markdown(
     """The sidebar lists all available calculators:
-    - **Design inputs & link budget** for received power/SNR trades.
-    - **Electronic warfare** for burn-through exploration.
-    - **Propagation** for Fresnel clearance and FSPL checks.
-    - **Antenna** for gain vs. beamwidth.
-    - **Radar modes** for timing, resolution, and velocity ambiguity.
-    - **Antenna models & fields** for rectangular vs. elliptical gain and near/far-field notes.
-    - **RCS & retroreflectors** for Rayleigh/optical checks and decoy references.
-    - **Weather radar & horizon** for volume-target losses, attenuation, and LOS range.
-    - **Noise & receiver performance** for NF/Fn, ENOB, and noise-temperature context.
+    - **Electronic warfare** for subareas, protection measures, and burn-through.
+    - **Frequency bands** for ISM allocations and radar-centric bands.
+    - **Antenna models & field regions** for rectangular vs. elliptical solid angles and near/far boundaries.
+    - **Antenna patterns & gain** for beamwidth, efficiency, and pattern notes including command-guided beams.
+    - **Link budget & propagation** for FSPL, Fresnel clearance, bulge, and two-ray/knife-edge notes.
+    - **Noise & receiver performance** for Fn/NF, noise temperature, SINAD, ENOB, and SNIR.
+    - **RCS, chaff, and decoys** for Rayleigh/optical regimes, retroreflectors, and expendables.
     - **Jamming & deception** for support-jamming J/S and ECM technique notes.
-    - **Pulse & CW radar** for duty cycle, blind/unambiguous range, Doppler, and FMCW resolution.
-    - **Resolution, links & Swerling** for pulse volume, angular spacing, one-way link budgets, and fluctuation margins.
+    - **Pulse & CW radar** for blind range, unambiguous range, duty cycle, and FMCW resolution.
+    - **Doppler, refraction, and horizon** for radial speed, height estimates, ducting, and radar LOS.
+    - **Resolution, link equations & Swerling** for resolution cells, one/two-way links, losses, and fluctuation models.
     """
 )
